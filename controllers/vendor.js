@@ -16,7 +16,7 @@ router.post('/', (req,res) => {
     });
 });
 
-router.put('/', (req,res) => {
+router.put('/:id', (req,res) => {
     let updatedVendor = req.body;
     vendors = vendors
         .map(vendor => {
@@ -30,7 +30,7 @@ router.put('/', (req,res) => {
     })
 });
 
-router.delete('/', (req,res) => {
+router.delete('/:id', (req,res) => {
     vendors = vendors.filter( vendor => vendor.id !== Number(req.params.id));
     res.json({
         message: 'Successfully deleted vendor'
