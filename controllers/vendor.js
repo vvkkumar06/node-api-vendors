@@ -7,7 +7,12 @@ router.get('/', (req,res) => {
 });
 router.get('/:id', (req,res) => {
     console.log('Fetching vendor...');
-    let vendor = vendors.filter(vendor => vendor.id === Number(req.param.id));
+    let vendor;
+    vendors.map(result => {
+        if (result.id === Number(req.params.id)) { 
+            vendor = result;
+        }
+    });
     res.json(vendor);
 });
 
