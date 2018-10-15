@@ -6,7 +6,7 @@ router.get('/', (req,res) => {
     res.json(vendors);
 });
 
-router.post('/register', (req,res) => {
+router.post('/', (req,res) => {
     let vendor = req.body;
     console.log(vendor);
     vendor.id = Math.floor(Math.random() * 1000000000);
@@ -16,7 +16,7 @@ router.post('/register', (req,res) => {
     });
 });
 
-router.put('/update/:id', (req,res) => {
+router.put('/', (req,res) => {
     let updatedVendor = req.body;
     vendors = vendors
         .map(vendor => {
@@ -30,7 +30,7 @@ router.put('/update/:id', (req,res) => {
     })
 });
 
-router.delete('/remove/:id', (req,res) => {
+router.delete('/', (req,res) => {
     vendors = vendors.filter( vendor => vendor.id !== Number(req.params.id));
     res.json({
         message: 'Successfully deleted vendor'
