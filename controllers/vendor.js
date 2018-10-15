@@ -2,8 +2,13 @@ const router = require('express').Router();
 
 
 router.get('/', (req,res) => {
-    console.log('Fetching vendors...')
+    console.log('Fetching vendors...');
     res.json(vendors);
+});
+router.get('/:id', (req,res) => {
+    console.log('Fetching vendor...');
+    let vendor = vendor.filter(vendor => vendor.id === Number(req.param.id));
+    res.json(vendor);
 });
 
 router.post('/', (req,res) => {
